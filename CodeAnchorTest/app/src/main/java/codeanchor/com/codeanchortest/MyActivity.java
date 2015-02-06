@@ -8,6 +8,8 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,12 @@ import com.estimote.sdk.Region;
 import com.estimote.sdk.Utils;
 import com.estimote.sdk.utils.L;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.IOException;
 import java.util.List;
 
 public class MyActivity extends Activity {
@@ -31,6 +39,11 @@ public class MyActivity extends Activity {
 
     private BeaconManager beaconManager;
 //    private BeaconListAdapter adapter;
+    private String request = "meghbaksho22.appspot.com/resources/helloworld";
+    private HttpGet get = new HttpGet(request);
+
+    Button requestButton;
+    TextView responseText;
 
     private Beacon currentBeacon = null;
 
@@ -43,6 +56,26 @@ public class MyActivity extends Activity {
         major = (TextView) findViewById(R.id.Major);
         minor = (TextView) findViewById(R.id.Minor);
         distance = (TextView) findViewById(R.id.Distance);
+
+        responseText = (TextView) findViewById(R.id.response);
+
+        requestButton = (Button) findViewById(R.id.requestButton);
+        requestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HttpClient client = new DefaultHttpClient();
+                HttpResponse response = null;
+                try {
+                     response = client.execute(get);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                if (response != null) {
+                    responseText.setText(response.toString());
+                }
+            }
+        });
 
         /*  Configure device list   */
 
