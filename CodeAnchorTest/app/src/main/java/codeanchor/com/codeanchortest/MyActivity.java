@@ -3,6 +3,7 @@ package codeanchor.com.codeanchortest;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
@@ -20,12 +21,17 @@ import com.estimote.sdk.Utils;
 import com.estimote.sdk.utils.L;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class MyActivity extends Activity {
     
@@ -39,8 +45,6 @@ public class MyActivity extends Activity {
 
     private BeaconManager beaconManager;
 //    private BeaconListAdapter adapter;
-    private String request = "meghbaksho22.appspot.com/resources/helloworld";
-    private HttpGet get = new HttpGet(request);
 
     Button requestButton;
     TextView responseText;
@@ -63,16 +67,14 @@ public class MyActivity extends Activity {
         requestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HttpClient client = new DefaultHttpClient();
-                HttpResponse response = null;
+                NetworkCode c = new NetworkCode();
                 try {
-                     response = client.execute(get);
-                } catch (IOException e) {
+                    String string = c.execute().get();
+                    responseText.setText(string);
+                } catch (InterruptedException e) {
                     e.printStackTrace();
-                }
-
-                if (response != null) {
-                    responseText.setText(response.toString());
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -104,6 +106,48 @@ public class MyActivity extends Activity {
                 });
             }
         });
+    }
+
+    class NetworkCode extends AsyncTask<Void, Void, String> {
+
+        InputStream stream;
+
+        @Override
+        protected String doInBackground(Void... params) {
+            String str = "";
+
+            String url9583 = "http://1-dot-capstone-bluetooth.appspot.com/capstone?majorId=9583";
+            String url3867 = "http://1-dot-capstone-bluetooth.appspot.com/capstone?majorId=3867";
+
+            HttpResponse response;
+            HttpClient myClient = new DefaultHttpClient();
+            HttpGet myConnection = new HttpGet(url9583);
+
+            try {
+                response = myClient.execute(myConnection);
+
+                stream = response.getEntity().getContent();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(stream, "iso-8859-1"), 8);
+                StringBuilder builder = new StringBuilder();
+                String line = null;
+                while ((line = bufferedReader.readLine()) != null) {
+                    builder.append(line);
+                    builder.append("\n");
+                }
+
+                stream.close();
+
+                str = builder.toString();
+            }
+            catch (ClientProtocolException e) {
+                e.printStackTrace();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            Log.i(TAG, str);
+            return str;
+        }
     }
 
     @Override
