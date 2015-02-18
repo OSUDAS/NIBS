@@ -1,0 +1,331 @@
+{
+    
+    "Demo": [
+             
+             {
+             
+             "majorID": 3867,
+             
+             "minorID": 4376,
+             
+             "building": "Kelly Engineering",
+             
+             "location": "Engineering Office",
+             
+             "information": [
+                             
+                             {
+                             
+                             "id": 1,
+                             
+                             "subject": "Office",
+                             
+                             "description": "Engineering Office"
+                             
+                             },
+                             
+                             {
+                             
+                             "id": 2,
+                             
+                             "subject": "General Information",
+                             
+                             "description": "Engineering advisor offices and meeting place"
+                             
+                             }
+                             
+                             ],
+             
+             "navigation": [
+                            
+                            {
+                            
+                            "majorID": 9583,
+                            
+                            "minorID": 8338,
+                            
+                            "location": "eCafe",
+                            
+                            "steps": [
+                                      
+                                      {
+                                      
+                                      "step": "Face away from the office door"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Walk forward 20 steps"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "You have arrived at the eCafe"
+                                      
+                                      }
+                                      
+                                      ]
+                            
+                            },
+                            
+                            {
+                            
+                            "majorID": 2960,
+                            
+                            "minorID": 1968,
+                            
+                            "location": "First Floor Elevators",
+                            
+                            "steps": [
+                                      
+                                      {
+                                      
+                                      "step": "Face away from the office door"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Turn right 90 degrees"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Walk forward 40 steps"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Turn left 90 degrees"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Walk forward 30 steps"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "The elevators are to your left"
+                                      
+                                      }
+                                      
+                                      ]
+                            
+                            },
+                            
+                            {
+                            
+                            "majorID": 6285,
+                            
+                            "minorID": 1059,
+                            
+                            "location": "Back Entrance",
+                            
+                            "steps": [
+                                      
+                                      {
+                                      
+                                      "step": "Face away from the office door"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Turn right 90 degrees"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Walk forward 40 steps"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Turn right 90 degrees"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Exit is ahead"
+                                      
+                                      }
+                                      
+                                      ]
+                            
+                            }
+                            
+                            ]
+             
+             },
+             
+             {
+             
+             "majorID": 9583,
+             
+             "minorID": 8338,
+             
+             "location": "eCafe",
+             
+             "building": "Kelly Engineering",
+             
+             "information": [
+                             
+                             {
+                             
+                             "id": 1,
+                             
+                             "subject": "Food",
+                             
+                             "description": "Cafe that sells food and drinks"
+                             
+                             },
+                             
+                             {
+                             
+                             "id": 2,
+                             
+                             "subject": "Special",
+                             
+                             "description": "eCafe special is a hot chocolate latte blended with nutmeg"
+                             
+                             }
+                             
+                             ],
+             
+             "navigation": [
+                            
+                            {
+                            
+                            "majorID": 3867,
+                            
+                            "minorID": 4376,
+                            
+                            "location": "Engineering Office",
+                            
+                            "steps": [
+                                      
+                                      {
+                                      
+                                      "step": "Face away from the cafe"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Walk forward 20 steps"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "You have arrived at the entrance to the Engineering Office"
+                                      
+                                      }
+                                      
+                                      ]
+                            
+                            }
+                            
+                            ]
+             
+             },
+             
+             {
+             
+             "majorID": 2960,
+             
+             "minorID": 1968,
+             
+             "location": "First Floor Elevators",
+             
+             "building": "Kelly Engineering",
+             
+             "information": [
+                             
+                             {
+                             
+                             "id": 1,
+                             
+                             "subject": "Floor",
+                             
+                             "description": "First floor contains the Engineering office, eCafe, and lecture halls"
+                             
+                             }
+                             
+                             ],
+             
+             "navigation": [
+                            
+                            {
+                            
+                            "majorID": 3867,
+                            
+                            "minorID": 4376,
+                            
+                            "location": "Engineering Office",
+                            
+                            "steps": [
+                                      
+                                      {
+                                      
+                                      "step": "Face away from the elevators"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Turn right 90 degrees"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Walk forward 30 steps"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Turn right 90 degrees"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Walk forward 40 steps"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "Turn left 90 degrees"
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "step": "The Engineering Offices are ahead"
+                                      
+                                      }
+                                      
+                                      ]
+                            
+                            }
+                            
+                            ]
+             
+             }
+             
+             ]
+    
+}
