@@ -9,7 +9,6 @@ import android.os.RemoteException;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +30,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class MyActivity extends Activity {
     
@@ -54,7 +52,7 @@ public class MyActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
+        setContentView(R.layout.activity_main);
         if (getActionBar() != null) getActionBar().setDisplayHomeAsUpEnabled(true);
 
         major = (TextView) findViewById(R.id.Major);
@@ -63,21 +61,21 @@ public class MyActivity extends Activity {
 
         responseText = (TextView) findViewById(R.id.response);
 
-        requestButton = (Button) findViewById(R.id.requestButton);
-        requestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NetworkCode c = new NetworkCode();
-                try {
-                    String string = c.execute().get();
-                    responseText.setText(string);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        requestButton = (Button) findViewById(R.id.requestButton);
+//        requestButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                NetworkCode c = new NetworkCode();
+//                try {
+//                    String string = c.execute().get();
+//                    responseText.setText(string);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (ExecutionException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
         /*  Configure device list   */
 
@@ -90,7 +88,7 @@ public class MyActivity extends Activity {
         beaconManager.setRangingListener(new BeaconManager.RangingListener() {
             @Override
             public void onBeaconsDiscovered(Region region, final List<Beacon> beacons) {
-                Log.e(TAG, "Beacon Discovered");
+//                Log.e(TAG, "Beacon Discovered");
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -98,7 +96,7 @@ public class MyActivity extends Activity {
                         if (currentBeacon != null && currentBeacon.equals(beacons.get(0))) return;
                         currentBeacon = beacons.get(0);
                         getActionBar().setSubtitle("Found Beacons: " + beacons.size());
-                        Log.e(TAG, beacons.get(0).toString());
+                        Log.i(TAG, beacons.toString());
                         major.setText(Integer.toString(beacons.get(0).getMajor()));
                         minor.setText(Integer.toString(beacons.get(0).getMinor()));
                         distance.setText(String.format("%.2fm", Utils.computeAccuracy(beacons.get(0))));
@@ -116,7 +114,7 @@ public class MyActivity extends Activity {
         protected String doInBackground(Void... params) {
             String str = "";
 
-            String url9583 = "http://1-dot-capstone-bluetooth.appspot.com/capstone?majorId=9583";
+            String url9583 = "http://1-dot-capstone-bluetooth.appspot.com/capstone?majorId=9583&minorId=8338";
             String url3867 = "http://1-dot-capstone-bluetooth.appspot.com/capstone?majorId=3867";
 
             HttpResponse response;
@@ -124,6 +122,8 @@ public class MyActivity extends Activity {
             HttpGet myConnection = new HttpGet(url9583);
 
             try {
+                Log.i(TAG, "Querying " + url9583);
+
                 response = myClient.execute(myConnection);
 
                 stream = response.getEntity().getContent();
