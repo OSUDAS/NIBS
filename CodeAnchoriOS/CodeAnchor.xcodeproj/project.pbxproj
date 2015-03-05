@@ -31,6 +31,9 @@
 		D8BE347B1A897975001CAABE /* Questionmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BE347A1A897975001CAABE /* Questionmark.png */; };
 		D8BFDAA11A9430BB00B88A09 /* Navicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BFDAA01A9430BB00B88A09 /* Navicon.png */; };
 		D8C0625B1A8A908B00622126 /* StepsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C0625A1A8A908B00622126 /* StepsNavController.swift */; };
+		D8C358041AA650FA0026C601 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C358031AA650FA0026C601 /* HttpManager.swift */; };
+		D8C358061AA653920026C601 /* HttpTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C358051AA653920026C601 /* HttpTestViewController.swift */; };
+		D8C3CEB41AA7E20C003F28DF /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C3CEB31AA7E20C003F28DF /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		D8BE347A1A897975001CAABE /* Questionmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Questionmark.png; sourceTree = "<group>"; };
 		D8BFDAA01A9430BB00B88A09 /* Navicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Navicon.png; sourceTree = "<group>"; };
 		D8C0625A1A8A908B00622126 /* StepsNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepsNavController.swift; sourceTree = "<group>"; };
+		D8C358031AA650FA0026C601 /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		D8C358051AA653920026C601 /* HttpTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpTestViewController.swift; sourceTree = "<group>"; };
+		D8C3CEB31AA7E20C003F28DF /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,9 @@
 				D831F13D1A7E192F0014EDB1 /* Supporting Files */,
 				D84264731A878138009A6A35 /* SettingsTVC.swift */,
 				D84264751A878F00009A6A35 /* BeaconTabController.swift */,
+				D8C358031AA650FA0026C601 /* HttpManager.swift */,
+				D8C358051AA653920026C601 /* HttpTestViewController.swift */,
+				D8C3CEB31AA7E20C003F28DF /* DataManager.swift */,
 			);
 			path = CodeAnchor;
 			sourceTree = "<group>";
@@ -310,10 +319,13 @@
 				D831F1621A7E19990014EDB1 /* NavViewController.swift in Sources */,
 				D842646A1A877622009A6A35 /* BeaconInfo.swift in Sources */,
 				D842646C1A877D66009A6A35 /* BeaconTableViewController.swift in Sources */,
+				D8C3CEB41AA7E20C003F28DF /* DataManager.swift in Sources */,
+				D8C358041AA650FA0026C601 /* HttpManager.swift in Sources */,
 				D84264761A878F00009A6A35 /* BeaconTabController.swift in Sources */,
 				D842646E1A877D9F009A6A35 /* BeaconInformationTVC.swift in Sources */,
 				D84264741A878138009A6A35 /* SettingsTVC.swift in Sources */,
 				D831F1401A7E192F0014EDB1 /* AppDelegate.swift in Sources */,
+				D8C358061AA653920026C601 /* HttpTestViewController.swift in Sources */,
 				D8C0625B1A8A908B00622126 /* StepsNavController.swift in Sources */,
 				D84264701A877DD9009A6A35 /* BeaconNavigationTVC.swift in Sources */,
 				D831F1671A81B9B30014EDB1 /* Beacon.swift in Sources */,
