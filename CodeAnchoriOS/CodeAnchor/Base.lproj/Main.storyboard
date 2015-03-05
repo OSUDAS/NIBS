@@ -90,6 +90,100 @@
             </objects>
             <point key="canvasLocation" x="319" y="2275.5"/>
         </scene>
+        <!--Http Test View Controller-->
+        <scene sceneID="kIL-zA-GCF">
+            <objects>
+                <viewController id="jQN-Mg-HUg" customClass="HttpTestViewController" customModule="CodeAnchor" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QK5-Ej-3ZD"/>
+                        <viewControllerLayoutGuide type="bottom" id="szZ-46-imO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FnU-V9-Cu1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mg1-Yy-6wj">
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <state key="normal" title="Exit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitView:" destination="jQN-Mg-HUg" eventType="touchUpInside" id="ygL-Vg-gEg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MajorID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpc-aE-gyZ">
+                                <rect key="frame" x="16" y="58" width="60" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MinorID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAv-lc-SHY">
+                                <rect key="frame" x="16" y="87" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T6g-VU-izp">
+                                <rect key="frame" x="84" y="49" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="zPJ-fU-qtI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVR-os-kaO">
+                                <rect key="frame" x="84" y="87" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tm3-1P-T8v">
+                                <rect key="frame" x="84" y="125" width="36" height="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendHttp:" destination="jQN-Mg-HUg" eventType="touchUpInside" id="ZjZ-0R-Cao"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U98-bl-KXL">
+                                <rect key="frame" x="84" y="163" width="505" height="417"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xpc-aE-gyZ" firstAttribute="leading" secondItem="FnU-V9-Cu1" secondAttribute="leadingMargin" id="2Tz-X0-akS"/>
+                            <constraint firstItem="U98-bl-KXL" firstAttribute="top" secondItem="tm3-1P-T8v" secondAttribute="bottom" constant="8" symbolic="YES" id="5UC-Gd-oPp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U98-bl-KXL" secondAttribute="trailing" constant="-5" id="66n-ja-2qQ"/>
+                            <constraint firstItem="U98-bl-KXL" firstAttribute="leading" secondItem="tm3-1P-T8v" secondAttribute="leading" id="7uJ-13-Ox2"/>
+                            <constraint firstAttribute="bottom" secondItem="U98-bl-KXL" secondAttribute="bottom" constant="20" symbolic="YES" id="LoK-xq-WUT"/>
+                            <constraint firstItem="T6g-VU-izp" firstAttribute="leading" secondItem="Xpc-aE-gyZ" secondAttribute="trailing" constant="8" symbolic="YES" id="Num-Ul-ZoY"/>
+                            <constraint firstItem="zVR-os-kaO" firstAttribute="leading" secondItem="T6g-VU-izp" secondAttribute="leading" id="YCN-41-rGK"/>
+                            <constraint firstItem="tm3-1P-T8v" firstAttribute="top" secondItem="zVR-os-kaO" secondAttribute="bottom" constant="8" symbolic="YES" id="ZpP-AA-Z9F"/>
+                            <constraint firstItem="tm3-1P-T8v" firstAttribute="leading" secondItem="zVR-os-kaO" secondAttribute="leading" id="cIF-nu-OYc"/>
+                            <constraint firstItem="zVR-os-kaO" firstAttribute="top" secondItem="T6g-VU-izp" secondAttribute="bottom" constant="8" symbolic="YES" id="cem-DF-qcl"/>
+                            <constraint firstItem="Xpc-aE-gyZ" firstAttribute="leading" secondItem="Mg1-Yy-6wj" secondAttribute="leading" id="eak-3e-FI2"/>
+                            <constraint firstItem="gAv-lc-SHY" firstAttribute="leading" secondItem="Xpc-aE-gyZ" secondAttribute="leading" id="imX-5L-Ou1"/>
+                            <constraint firstItem="zVR-os-kaO" firstAttribute="trailing" secondItem="T6g-VU-izp" secondAttribute="trailing" id="mSK-fK-MaS"/>
+                            <constraint firstItem="Xpc-aE-gyZ" firstAttribute="top" secondItem="Mg1-Yy-6wj" secondAttribute="bottom" constant="8" symbolic="YES" id="qu3-am-7dB"/>
+                            <constraint firstItem="gAv-lc-SHY" firstAttribute="top" secondItem="Xpc-aE-gyZ" secondAttribute="bottom" constant="8" symbolic="YES" id="tDl-Jj-frS"/>
+                            <constraint firstItem="Mg1-Yy-6wj" firstAttribute="top" secondItem="QK5-Ej-3ZD" secondAttribute="bottom" id="uEY-X0-7cj"/>
+                            <constraint firstItem="zVR-os-kaO" firstAttribute="top" secondItem="gAv-lc-SHY" secondAttribute="top" id="ziK-Qk-gBJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="majorText" destination="T6g-VU-izp" id="nJf-zL-fjv"/>
+                        <outlet property="minorText" destination="zVR-os-kaO" id="Weg-X0-TVi"/>
+                        <outlet property="textArea" destination="U98-bl-KXL" id="Omy-NS-Its"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ny-9S-v45" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-126" y="2054"/>
+        </scene>
         <!--Beacon Table View Controller-->
         <scene sceneID="haK-oi-qHc">
             <objects>
@@ -183,10 +277,21 @@
                                     <segue destination="0x0-uF-Cet" kind="embed" id="w4g-C5-suU"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hfv-zu-pdm">
+                                <rect key="frame" x="497" y="59" width="87" height="30"/>
+                                <state key="normal" title="HttpRequest">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jQN-Mg-HUg" kind="presentation" id="YGf-sK-ZT9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Hfv-zu-pdm" firstAttribute="baseline" secondItem="EeH-uN-JXK" secondAttribute="baseline" id="78v-m5-0G7"/>
                             <constraint firstAttribute="trailing" secondItem="yvS-lw-nBW" secondAttribute="trailing" id="7nF-gr-Izy"/>
+                            <constraint firstItem="Hfv-zu-pdm" firstAttribute="trailing" secondItem="Cb2-0g-yB3" secondAttribute="trailingMargin" id="AjI-tD-vVw"/>
                             <constraint firstItem="nxD-us-3Ty" firstAttribute="leading" secondItem="Cb2-0g-yB3" secondAttribute="leadingMargin" id="C9d-J2-6tT"/>
                             <constraint firstItem="EeH-uN-JXK" firstAttribute="centerX" secondItem="yvS-lw-nBW" secondAttribute="centerX" id="R1L-p2-d2t"/>
                             <constraint firstItem="nxD-us-3Ty" firstAttribute="baseline" secondItem="EeH-uN-JXK" secondAttribute="baseline" id="dDD-dR-WsV"/>
