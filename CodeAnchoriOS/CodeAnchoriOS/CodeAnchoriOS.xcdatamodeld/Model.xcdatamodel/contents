@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Beacon" representedClassName="Beacon" syncable="YES">
+        <attribute name="building" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="distance" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="majorID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="minorID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="navigationDirectories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NavigationDirectory" inverseName="beacon" inverseEntity="NavigationDirectory" syncable="YES"/>
+    </entity>
+    <entity name="NavigationDirectory" representedClassName="NavigationDirectory" syncable="YES">
+        <attribute name="building" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="destination" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="toBeaconID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="beacon" maxCount="1" deletionRule="Nullify" destinationEntity="Beacon" inverseName="navigationDirectories" inverseEntity="Beacon" syncable="YES"/>
+        <relationship name="steps" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Step" inverseName="navigationDirectory" inverseEntity="Step" syncable="YES"/>
+    </entity>
+    <entity name="Step" representedClassName="Step" syncable="YES">
+        <attribute name="beaconID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="instruction" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stepNum" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="navigationDirectory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NavigationDirectory" inverseName="steps" inverseEntity="NavigationDirectory" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Beacon" positionX="-126" positionY="158" width="128" height="165"/>
+        <element name="NavigationDirectory" positionX="286" positionY="218" width="128" height="133"/>
+        <element name="Step" positionX="90" positionY="392" width="128" height="120"/>
+    </elements>
+</model>

@@ -1,0 +1,648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D81592B91AE897A50057DA4F /* CodeAnchoriOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D81592B71AE897A50057DA4F /* CodeAnchoriOS.xcdatamodeld */; };
+		D81592BB1AE89A4A0057DA4F /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81592BA1AE89A4A0057DA4F /* DemoData.swift */; };
+		D81592BD1AE8A58B0057DA4F /* DemoData.json in Resources */ = {isa = PBXBuildFile; fileRef = D81592BC1AE8A58B0057DA4F /* DemoData.json */; };
+		D835703E1AED9E5E00555582 /* NibConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D835703D1AED9E5E00555582 /* NibConfig.swift */; };
+		D8BB58221AE0446D00442C39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB58211AE0446D00442C39 /* AppDelegate.swift */; };
+		D8BB582A1AE0446D00442C39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BB58281AE0446D00442C39 /* Main.storyboard */; };
+		D8BB582C1AE0446D00442C39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BB582B1AE0446D00442C39 /* Images.xcassets */; };
+		D8BB582F1AE0446D00442C39 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BB582D1AE0446D00442C39 /* LaunchScreen.xib */; };
+		D8BB583B1AE0446D00442C39 /* CodeAnchoriOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB583A1AE0446D00442C39 /* CodeAnchoriOSTests.swift */; };
+		D8C11D571AE1886F00BB000B /* BeaconTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11D561AE1886F00BB000B /* BeaconTVC.swift */; };
+		D8C11D5A1AE81A0100BB000B /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C11D591AE81A0100BB000B /* DataManager.swift */; };
+		D8C11D5C1AE81B4000BB000B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C11D5B1AE81B4000BB000B /* CoreBluetooth.framework */; };
+		D8C11D5E1AE81B5900BB000B /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C11D5D1AE81B5900BB000B /* libEstimoteSDK.a */; };
+		D8C11D601AE81B8400BB000B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C11D5F1AE81B8400BB000B /* CoreLocation.framework */; };
+		D8C11D621AE81B8E00BB000B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C11D611AE81B8E00BB000B /* CoreData.framework */; };
+		D8C11D9A1AE81FCD00BB000B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8C11D991AE81FCD00BB000B /* SystemConfiguration.framework */; };
+		D8CE78911AEC345D0018F48B /* NIBSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78901AEC345D0018F48B /* NIBSTabBarController.swift */; };
+		D8CE78931AEC40580018F48B /* BeaconInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78921AEC40580018F48B /* BeaconInfoVC.swift */; };
+		D8CE78951AEC47F70018F48B /* BeaconObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78941AEC47F70018F48B /* BeaconObject.swift */; };
+		D8CE78981AEC5DDF0018F48B /* NavDirectoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78971AEC5DDF0018F48B /* NavDirectoryTVC.swift */; };
+		D8CE789A1AEC5EB50018F48B /* NavigationNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78991AEC5EB50018F48B /* NavigationNC.swift */; };
+		D8CE789C1AEC60330018F48B /* NavigationDirectoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE789B1AEC60330018F48B /* NavigationDirectoryObject.swift */; };
+		D8CE78AA1AEC6AF70018F48B /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78A91AEC6AF70018F48B /* Beacon.swift */; };
+		D8CE78B01AEC7EF50018F48B /* NavigationDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78AF1AEC7EF50018F48B /* NavigationDirectory.swift */; };
+		D8CE78B21AEC87080018F48B /* StepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78B11AEC87080018F48B /* StepVC.swift */; };
+		D8CE78B41AEC8AB10018F48B /* StepObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78B31AEC8AB10018F48B /* StepObject.swift */; };
+		D8CE78B61AEC9A040018F48B /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78B51AEC9A040018F48B /* Step.swift */; };
+		D8CE78BC1AED7DF50018F48B /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CE78BB1AED7DF50018F48B /* SettingsTVC.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8BB58351AE0446D00442C39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8BB58141AE0446D00442C39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8BB581B1AE0446D00442C39;
+			remoteInfo = CodeAnchoriOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D81592B81AE897A50057DA4F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		D81592BA1AE89A4A0057DA4F /* DemoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
+		D81592BC1AE8A58B0057DA4F /* DemoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DemoData.json; path = ../DemoData.json; sourceTree = "<group>"; };
+		D835703D1AED9E5E00555582 /* NibConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibConfig.swift; sourceTree = "<group>"; };
+		D8BB581C1AE0446D00442C39 /* CodeAnchoriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeAnchoriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8BB58201AE0446D00442C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8BB58211AE0446D00442C39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8BB58291AE0446D00442C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8BB582B1AE0446D00442C39 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D8BB582E1AE0446D00442C39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D8BB58341AE0446D00442C39 /* CodeAnchoriOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeAnchoriOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8BB58391AE0446D00442C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8BB583A1AE0446D00442C39 /* CodeAnchoriOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAnchoriOSTests.swift; sourceTree = "<group>"; };
+		D8C11D561AE1886F00BB000B /* BeaconTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTVC.swift; sourceTree = "<group>"; };
+		D8C11D591AE81A0100BB000B /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		D8C11D5B1AE81B4000BB000B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		D8C11D5D1AE81B5900BB000B /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
+		D8C11D5F1AE81B8400BB000B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D8C11D611AE81B8E00BB000B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D8C11D801AE81DE300BB000B /* ESTBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeacon.h; sourceTree = "<group>"; };
+		D8C11D811AE81DE300BB000B /* ESTBeaconDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconDefinitions.h; sourceTree = "<group>"; };
+		D8C11D821AE81DE300BB000B /* ESTBeaconFirmwareVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconFirmwareVO.h; sourceTree = "<group>"; };
+		D8C11D831AE81DE300BB000B /* ESTBeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconManager.h; sourceTree = "<group>"; };
+		D8C11D841AE81DE300BB000B /* ESTBeaconRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconRegion.h; sourceTree = "<group>"; };
+		D8C11D851AE81DE300BB000B /* ESTBeaconUpdateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateConfig.h; sourceTree = "<group>"; };
+		D8C11D861AE81DE300BB000B /* ESTBeaconUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconUpdateInfo.h; sourceTree = "<group>"; };
+		D8C11D871AE81DE300BB000B /* ESTBeaconVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBeaconVO.h; sourceTree = "<group>"; };
+		D8C11D881AE81DE300BB000B /* ESTBulkUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTBulkUpdater.h; sourceTree = "<group>"; };
+		D8C11D891AE81DE300BB000B /* ESTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTConfig.h; sourceTree = "<group>"; };
+		D8C11D8A1AE81DE300BB000B /* ESTDateRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTDateRule.h; sourceTree = "<group>"; };
+		D8C11D8B1AE81DE300BB000B /* ESTDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTDefinitions.h; sourceTree = "<group>"; };
+		D8C11D8C1AE81DE300BB000B /* ESTFirmwareInfoVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTFirmwareInfoVO.h; sourceTree = "<group>"; };
+		D8C11D8D1AE81DE300BB000B /* ESTMotionRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTMotionRule.h; sourceTree = "<group>"; };
+		D8C11D8E1AE81DE300BB000B /* ESTNearable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearable.h; sourceTree = "<group>"; };
+		D8C11D8F1AE81DE300BB000B /* ESTNearableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearableManager.h; sourceTree = "<group>"; };
+		D8C11D901AE81DE300BB000B /* ESTNearableRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTNearableRule.h; sourceTree = "<group>"; };
+		D8C11D911AE81DE300BB000B /* ESTOrientationRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTOrientationRule.h; sourceTree = "<group>"; };
+		D8C11D921AE81DE300BB000B /* ESTProximityRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTProximityRule.h; sourceTree = "<group>"; };
+		D8C11D931AE81DE300BB000B /* ESTRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTRule.h; sourceTree = "<group>"; };
+		D8C11D941AE81DE300BB000B /* ESTTemperatureRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTemperatureRule.h; sourceTree = "<group>"; };
+		D8C11D951AE81DE300BB000B /* ESTTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTrigger.h; sourceTree = "<group>"; };
+		D8C11D961AE81DE300BB000B /* ESTTriggerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTTriggerManager.h; sourceTree = "<group>"; };
+		D8C11D971AE81DE300BB000B /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEstimoteSDK.a; sourceTree = "<group>"; };
+		D8C11D991AE81FCD00BB000B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D8C11D9B1AE8202600BB000B /* Estimote-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Estimote-Bridging-Header.h"; sourceTree = "<group>"; };
+		D8CE78901AEC345D0018F48B /* NIBSTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NIBSTabBarController.swift; sourceTree = "<group>"; };
+		D8CE78921AEC40580018F48B /* BeaconInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconInfoVC.swift; sourceTree = "<group>"; };
+		D8CE78941AEC47F70018F48B /* BeaconObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconObject.swift; sourceTree = "<group>"; };
+		D8CE78971AEC5DDF0018F48B /* NavDirectoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavDirectoryTVC.swift; sourceTree = "<group>"; };
+		D8CE78991AEC5EB50018F48B /* NavigationNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationNC.swift; sourceTree = "<group>"; };
+		D8CE789B1AEC60330018F48B /* NavigationDirectoryObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDirectoryObject.swift; sourceTree = "<group>"; };
+		D8CE78A91AEC6AF70018F48B /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		D8CE78AF1AEC7EF50018F48B /* NavigationDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationDirectory.swift; sourceTree = "<group>"; };
+		D8CE78B11AEC87080018F48B /* StepVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepVC.swift; sourceTree = "<group>"; };
+		D8CE78B31AEC8AB10018F48B /* StepObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepObject.swift; sourceTree = "<group>"; };
+		D8CE78B51AEC9A040018F48B /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		D8CE78BB1AED7DF50018F48B /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8BB58191AE0446D00442C39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C11D9A1AE81FCD00BB000B /* SystemConfiguration.framework in Frameworks */,
+				D8C11D621AE81B8E00BB000B /* CoreData.framework in Frameworks */,
+				D8C11D601AE81B8400BB000B /* CoreLocation.framework in Frameworks */,
+				D8C11D5E1AE81B5900BB000B /* libEstimoteSDK.a in Frameworks */,
+				D8C11D5C1AE81B4000BB000B /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8BB58311AE0446D00442C39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8BB58131AE0446D00442C39 = {
+			isa = PBXGroup;
+			children = (
+				D8BB581E1AE0446D00442C39 /* CodeAnchoriOS */,
+				D8BB58371AE0446D00442C39 /* CodeAnchoriOSTests */,
+				D8BB581D1AE0446D00442C39 /* Products */,
+				D8C11D991AE81FCD00BB000B /* SystemConfiguration.framework */,
+				D8C11D7E1AE81DE300BB000B /* EstimoteSDK */,
+				D8C11D611AE81B8E00BB000B /* CoreData.framework */,
+				D8C11D5F1AE81B8400BB000B /* CoreLocation.framework */,
+				D8C11D5D1AE81B5900BB000B /* libEstimoteSDK.a */,
+				D8C11D5B1AE81B4000BB000B /* CoreBluetooth.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		D8BB581D1AE0446D00442C39 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8BB581C1AE0446D00442C39 /* CodeAnchoriOS.app */,
+				D8BB58341AE0446D00442C39 /* CodeAnchoriOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8BB581E1AE0446D00442C39 /* CodeAnchoriOS */ = {
+			isa = PBXGroup;
+			children = (
+				D8CE78BB1AED7DF50018F48B /* SettingsTVC.swift */,
+				D8CE78961AEC5DCB0018F48B /* Navigation */,
+				D8C11D9F1AE8472C00BB000B /* Model */,
+				D8C11D581AE819BE00BB000B /* Bluetooth */,
+				D8C11D551AE1884700BB000B /* Information */,
+				D8BB58211AE0446D00442C39 /* AppDelegate.swift */,
+				D8BB58281AE0446D00442C39 /* Main.storyboard */,
+				D8BB582B1AE0446D00442C39 /* Images.xcassets */,
+				D8BB582D1AE0446D00442C39 /* LaunchScreen.xib */,
+				D8C11D9B1AE8202600BB000B /* Estimote-Bridging-Header.h */,
+				D8BB581F1AE0446D00442C39 /* Supporting Files */,
+				D8CE78901AEC345D0018F48B /* NIBSTabBarController.swift */,
+			);
+			path = CodeAnchoriOS;
+			sourceTree = "<group>";
+		};
+		D8BB581F1AE0446D00442C39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8BB58201AE0446D00442C39 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8BB58371AE0446D00442C39 /* CodeAnchoriOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				D8BB583A1AE0446D00442C39 /* CodeAnchoriOSTests.swift */,
+				D8BB58381AE0446D00442C39 /* Supporting Files */,
+			);
+			path = CodeAnchoriOSTests;
+			sourceTree = "<group>";
+		};
+		D8BB58381AE0446D00442C39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8BB58391AE0446D00442C39 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8C11D551AE1884700BB000B /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				D8C11D561AE1886F00BB000B /* BeaconTVC.swift */,
+				D8CE78921AEC40580018F48B /* BeaconInfoVC.swift */,
+			);
+			name = Information;
+			sourceTree = "<group>";
+		};
+		D8C11D581AE819BE00BB000B /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				D81592BC1AE8A58B0057DA4F /* DemoData.json */,
+				D8C11D591AE81A0100BB000B /* DataManager.swift */,
+				D81592BA1AE89A4A0057DA4F /* DemoData.swift */,
+				D835703D1AED9E5E00555582 /* NibConfig.swift */,
+			);
+			name = Bluetooth;
+			sourceTree = "<group>";
+		};
+		D8C11D7E1AE81DE300BB000B /* EstimoteSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D8C11D7F1AE81DE300BB000B /* Headers */,
+				D8C11D971AE81DE300BB000B /* libEstimoteSDK.a */,
+			);
+			path = EstimoteSDK;
+			sourceTree = "<group>";
+		};
+		D8C11D7F1AE81DE300BB000B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				D8C11D801AE81DE300BB000B /* ESTBeacon.h */,
+				D8C11D811AE81DE300BB000B /* ESTBeaconDefinitions.h */,
+				D8C11D821AE81DE300BB000B /* ESTBeaconFirmwareVO.h */,
+				D8C11D831AE81DE300BB000B /* ESTBeaconManager.h */,
+				D8C11D841AE81DE300BB000B /* ESTBeaconRegion.h */,
+				D8C11D851AE81DE300BB000B /* ESTBeaconUpdateConfig.h */,
+				D8C11D861AE81DE300BB000B /* ESTBeaconUpdateInfo.h */,
+				D8C11D871AE81DE300BB000B /* ESTBeaconVO.h */,
+				D8C11D881AE81DE300BB000B /* ESTBulkUpdater.h */,
+				D8C11D891AE81DE300BB000B /* ESTConfig.h */,
+				D8C11D8A1AE81DE300BB000B /* ESTDateRule.h */,
+				D8C11D8B1AE81DE300BB000B /* ESTDefinitions.h */,
+				D8C11D8C1AE81DE300BB000B /* ESTFirmwareInfoVO.h */,
+				D8C11D8D1AE81DE300BB000B /* ESTMotionRule.h */,
+				D8C11D8E1AE81DE300BB000B /* ESTNearable.h */,
+				D8C11D8F1AE81DE300BB000B /* ESTNearableManager.h */,
+				D8C11D901AE81DE300BB000B /* ESTNearableRule.h */,
+				D8C11D911AE81DE300BB000B /* ESTOrientationRule.h */,
+				D8C11D921AE81DE300BB000B /* ESTProximityRule.h */,
+				D8C11D931AE81DE300BB000B /* ESTRule.h */,
+				D8C11D941AE81DE300BB000B /* ESTTemperatureRule.h */,
+				D8C11D951AE81DE300BB000B /* ESTTrigger.h */,
+				D8C11D961AE81DE300BB000B /* ESTTriggerManager.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		D8C11D9F1AE8472C00BB000B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D8CE78B51AEC9A040018F48B /* Step.swift */,
+				D8CE78A91AEC6AF70018F48B /* Beacon.swift */,
+				D8CE78941AEC47F70018F48B /* BeaconObject.swift */,
+				D8CE789B1AEC60330018F48B /* NavigationDirectoryObject.swift */,
+				D81592B71AE897A50057DA4F /* CodeAnchoriOS.xcdatamodeld */,
+				D8CE78AF1AEC7EF50018F48B /* NavigationDirectory.swift */,
+				D8CE78B31AEC8AB10018F48B /* StepObject.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D8CE78961AEC5DCB0018F48B /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				D8CE78971AEC5DDF0018F48B /* NavDirectoryTVC.swift */,
+				D8CE78991AEC5EB50018F48B /* NavigationNC.swift */,
+				D8CE78B11AEC87080018F48B /* StepVC.swift */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8BB581B1AE0446D00442C39 /* CodeAnchoriOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8BB583E1AE0446D00442C39 /* Build configuration list for PBXNativeTarget "CodeAnchoriOS" */;
+			buildPhases = (
+				D8BB58181AE0446D00442C39 /* Sources */,
+				D8BB58191AE0446D00442C39 /* Frameworks */,
+				D8BB581A1AE0446D00442C39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CodeAnchoriOS;
+			productName = CodeAnchoriOS;
+			productReference = D8BB581C1AE0446D00442C39 /* CodeAnchoriOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8BB58331AE0446D00442C39 /* CodeAnchoriOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8BB58411AE0446D00442C39 /* Build configuration list for PBXNativeTarget "CodeAnchoriOSTests" */;
+			buildPhases = (
+				D8BB58301AE0446D00442C39 /* Sources */,
+				D8BB58311AE0446D00442C39 /* Frameworks */,
+				D8BB58321AE0446D00442C39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8BB58361AE0446D00442C39 /* PBXTargetDependency */,
+			);
+			name = CodeAnchoriOSTests;
+			productName = CodeAnchoriOSTests;
+			productReference = D8BB58341AE0446D00442C39 /* CodeAnchoriOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8BB58141AE0446D00442C39 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = CodeAnchor;
+				TargetAttributes = {
+					D8BB581B1AE0446D00442C39 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = WCSRQ6PCBS;
+					};
+					D8BB58331AE0446D00442C39 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = D8BB581B1AE0446D00442C39;
+					};
+				};
+			};
+			buildConfigurationList = D8BB58171AE0446D00442C39 /* Build configuration list for PBXProject "CodeAnchoriOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8BB58131AE0446D00442C39;
+			productRefGroup = D8BB581D1AE0446D00442C39 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8BB581B1AE0446D00442C39 /* CodeAnchoriOS */,
+				D8BB58331AE0446D00442C39 /* CodeAnchoriOSTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8BB581A1AE0446D00442C39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81592BD1AE8A58B0057DA4F /* DemoData.json in Resources */,
+				D8BB582A1AE0446D00442C39 /* Main.storyboard in Resources */,
+				D8BB582F1AE0446D00442C39 /* LaunchScreen.xib in Resources */,
+				D8BB582C1AE0446D00442C39 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8BB58321AE0446D00442C39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8BB58181AE0446D00442C39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81592BB1AE89A4A0057DA4F /* DemoData.swift in Sources */,
+				D8CE78B61AEC9A040018F48B /* Step.swift in Sources */,
+				D8CE78931AEC40580018F48B /* BeaconInfoVC.swift in Sources */,
+				D835703E1AED9E5E00555582 /* NibConfig.swift in Sources */,
+				D8CE78B21AEC87080018F48B /* StepVC.swift in Sources */,
+				D8CE789A1AEC5EB50018F48B /* NavigationNC.swift in Sources */,
+				D8CE78BC1AED7DF50018F48B /* SettingsTVC.swift in Sources */,
+				D8CE78911AEC345D0018F48B /* NIBSTabBarController.swift in Sources */,
+				D8C11D571AE1886F00BB000B /* BeaconTVC.swift in Sources */,
+				D8C11D5A1AE81A0100BB000B /* DataManager.swift in Sources */,
+				D8CE78B01AEC7EF50018F48B /* NavigationDirectory.swift in Sources */,
+				D8BB58221AE0446D00442C39 /* AppDelegate.swift in Sources */,
+				D8CE789C1AEC60330018F48B /* NavigationDirectoryObject.swift in Sources */,
+				D8CE78981AEC5DDF0018F48B /* NavDirectoryTVC.swift in Sources */,
+				D81592B91AE897A50057DA4F /* CodeAnchoriOS.xcdatamodeld in Sources */,
+				D8CE78AA1AEC6AF70018F48B /* Beacon.swift in Sources */,
+				D8CE78B41AEC8AB10018F48B /* StepObject.swift in Sources */,
+				D8CE78951AEC47F70018F48B /* BeaconObject.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8BB58301AE0446D00442C39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8BB583B1AE0446D00442C39 /* CodeAnchoriOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8BB58361AE0446D00442C39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8BB581B1AE0446D00442C39 /* CodeAnchoriOS */;
+			targetProxy = D8BB58351AE0446D00442C39 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8BB58281AE0446D00442C39 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8BB58291AE0446D00442C39 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D8BB582D1AE0446D00442C39 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8BB582E1AE0446D00442C39 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8BB583C1AE0446D00442C39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D8BB583D1AE0446D00442C39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8BB583F1AE0446D00442C39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/EstimoteSDK/Headers",
+				);
+				INFOPLIST_FILE = CodeAnchoriOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/CodeAnchoriOS/EstimoteSDK",
+					"$(PROJECT_DIR)/EstimoteSDK",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CodeAnchoriOS/Estimote-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		D8BB58401AE0446D00442C39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/EstimoteSDK/Headers",
+				);
+				INFOPLIST_FILE = CodeAnchoriOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/CodeAnchoriOS/EstimoteSDK",
+					"$(PROJECT_DIR)/EstimoteSDK",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/CodeAnchoriOS/Estimote-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		D8BB58421AE0446D00442C39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CodeAnchoriOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeAnchoriOS.app/CodeAnchoriOS";
+			};
+			name = Debug;
+		};
+		D8BB58431AE0446D00442C39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CodeAnchoriOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeAnchoriOS.app/CodeAnchoriOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8BB58171AE0446D00442C39 /* Build configuration list for PBXProject "CodeAnchoriOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8BB583C1AE0446D00442C39 /* Debug */,
+				D8BB583D1AE0446D00442C39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8BB583E1AE0446D00442C39 /* Build configuration list for PBXNativeTarget "CodeAnchoriOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8BB583F1AE0446D00442C39 /* Debug */,
+				D8BB58401AE0446D00442C39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8BB58411AE0446D00442C39 /* Build configuration list for PBXNativeTarget "CodeAnchoriOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8BB58421AE0446D00442C39 /* Debug */,
+				D8BB58431AE0446D00442C39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D81592B71AE897A50057DA4F /* CodeAnchoriOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D81592B81AE897A50057DA4F /* Model.xcdatamodel */,
+			);
+			currentVersion = D81592B81AE897A50057DA4F /* Model.xcdatamodel */;
+			path = CodeAnchoriOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D8BB58141AE0446D00442C39 /* Project object */;
+}
