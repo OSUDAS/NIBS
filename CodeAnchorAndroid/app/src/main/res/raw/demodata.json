@@ -1,0 +1,151 @@
+{
+    
+    "Demo": [
+             
+             {
+             
+             "majorID": 2744,
+             
+             "minorID": 43145,
+             
+             "building": "Kelly Engineering",
+             
+             "location": "Entrance",
+             
+             "info": "Entrance to Kelly Engineering. This building contains ECCS offices and lecture halls.",
+             
+             "distance": 0.1,
+             
+             "subject": "Entrance",
+             
+             "navigation": [
+                            
+                            {
+                            
+                            "majorID": 5818,
+                            
+                            "minorID": 25435,
+                            
+                            "destination": "Back Entrance",
+                            
+                            "subject": "Entrance",
+                            
+                            "distance": 30,
+                            
+                            "info": "Back entrance to Kelly Engineering.",
+                            
+                            "steps": [
+                                      
+                                      {
+                                      "stepNum": 1,
+                                      
+                                      "instruction": "Face away from the doors",
+                                      
+                                      "majorID": 2744
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "stepNum": 2,
+                                      
+                                      "instruction": "Walk forward 20 steps",
+                                      
+                                      "majorID": 1933
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "stepNum": 3,
+                                      
+                                      "instruction": "Walk forward 20 steps",
+                                      
+                                      "majorID": 41694
+                                      
+                                      },
+                                      
+                                      {
+                                      
+                                      "stepNum": 4,
+                                      
+                                      "instruction": "You have arrived at the back entrance",
+                                      
+                                      "majorID": 5818
+                                      
+                                      }
+                                      
+                                      ]
+                            }
+                            
+                            ]
+             
+             },
+             
+             {
+             
+             "majorID": 5818,
+             
+             "minorID": 25435,
+             
+             "building": "Kelly Engineering",
+             
+             "location": "Back Entrance",
+             
+             "info": "Back entrance to Kelly Engineering. This building contains ECCS offices and lecture halls.",
+             
+             "distance": 30,
+             
+             "subject": "Entrance"
+             
+             
+             },
+             
+             {
+             
+             "majorID": 1933,
+             
+             "minorID": 64157,
+             
+             "building": "Kelly Engineering",
+             
+             "distance": 7,
+             
+             "subject": "Intermediate"
+             
+             
+             },
+             
+             {
+             
+             "majorID": 41694,
+             
+             "minorID": 42383,
+             
+             "building": "Kelly Engineering",
+             
+             "distance": 15,
+             
+             "subject": "Intermediate"
+             
+             
+             },
+             
+             {
+             
+             "majorID": 8337,
+             
+             "minorID": 53674,
+             
+             "building": "Kelly Engineering",
+             
+             "distance": 15,
+             
+             "subject": "Intermediate"
+             
+             
+             }
+             
+    
+]
+}
