@@ -1,4 +1,6 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.interfaces;
+
+import edu.oergonstate.das.codeanchorandroid.beacon.CABeacon;
 
 /**
  * Created by Alec on 4/23/2015.

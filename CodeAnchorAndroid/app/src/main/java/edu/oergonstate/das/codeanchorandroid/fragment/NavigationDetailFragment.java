@@ -1,28 +1,28 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.fragment;
 
 import android.app.Fragment;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
-import android.media.session.MediaSession;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.estimote.sdk.Beacon;
-
 import java.util.ArrayList;
-import java.util.FormatFlagsConversionMismatchException;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import edu.oergonstate.das.codeanchorandroid.beacon.CABeacon;
+import edu.oergonstate.das.codeanchorandroid.R;
+import edu.oergonstate.das.codeanchorandroid.interfaces.ICurrentBeacon;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IRefreshBeaconList;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IReturnToList;
 
 public class NavigationDetailFragment extends Fragment {
 
@@ -68,6 +68,8 @@ public class NavigationDetailFragment extends Fragment {
         public void run() {
 
             //TODO vibrate
+
+            if (getActivity() == null) return;
 
             if (PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext()).getBoolean("buzz_toggle", false)) {
                 vibrator.vibrate(500);
@@ -117,6 +119,7 @@ public class NavigationDetailFragment extends Fragment {
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                if (getActivity() == null) return;
                 beacons = ((IRefreshBeaconList) getActivity()).refreshBeaconList();
                 if (beacons == null || beacons.isEmpty()) return;
                 beacon1 = beacons.get(0);
@@ -149,6 +152,8 @@ public class NavigationDetailFragment extends Fragment {
         }, 0, 1000);
 
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

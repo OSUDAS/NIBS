@@ -1,4 +1,4 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.fragment;
 
 import android.app.Activity;
 import android.app.ListFragment;
@@ -11,6 +11,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import edu.oergonstate.das.codeanchorandroid.beacon.BeaconListAdapter;
+import edu.oergonstate.das.codeanchorandroid.beacon.CABeacon;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IBeaconListItemSelected;
 
 /**
  * Created by Alec on 4/22/2015.
@@ -47,8 +51,6 @@ public class InformationListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-
-        //TODO: Let Information Fragment know which beacon was selected
 
         mInformationFragment.openDetailView((CABeacon) mAdapter.getItem(position));
 

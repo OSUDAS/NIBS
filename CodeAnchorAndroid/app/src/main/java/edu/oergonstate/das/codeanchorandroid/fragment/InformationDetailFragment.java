@@ -1,15 +1,15 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import edu.oergonstate.das.codeanchorandroid.beacon.CABeacon;
+import edu.oergonstate.das.codeanchorandroid.R;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IReturnToList;
 
 /**
  * Shows the details of the selected beacon;

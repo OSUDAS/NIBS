@@ -1,4 +1,4 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -9,6 +9,13 @@ import android.view.ViewGroup;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
+import edu.oergonstate.das.codeanchorandroid.beacon.CABeacon;
+import edu.oergonstate.das.codeanchorandroid.R;
+import edu.oergonstate.das.codeanchorandroid.interfaces.ICurrentBeacon;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IDestinationListItemSelected;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IRefreshBeaconList;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IReturnToList;
 
 /**
  * Created by Alec on 4/20/2015.
@@ -21,6 +28,8 @@ public class NavigationFragment extends Fragment implements IDestinationListItem
     private NavigationListFragment listFragment;
     private IRefreshBeaconList mActivity;
     private ICurrentBeacon mCurrentBeacon;
+
+    private boolean isList;
 
     public NavigationFragment() {}
 
@@ -41,6 +50,7 @@ public class NavigationFragment extends Fragment implements IDestinationListItem
         listFragment.setParentFragment(this);
 
         getFragmentManager().beginTransaction().replace(R.id.navigation_content, listFragment).commit();
+        isList = true;
 
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -72,13 +82,18 @@ public class NavigationFragment extends Fragment implements IDestinationListItem
 
     @Override
     public void returnToList() {
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
-        getFragmentManager().beginTransaction().replace(R.id.navigation_content, listFragment).commit();
+        if(!isList) {
+            getActivity().getActionBar().setDisplayHomeAsUpEnabled(false);
+            getFragmentManager().beginTransaction().replace(R.id.navigation_content, listFragment).commit();
+            isList = true;
+        }
     }
     @Override
     public void openDetailView(CABeacon.Destination destination) {
         NavigationDetailFragment fragment = NavigationDetailFragment.newInstance(destination);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        isList = false;
 
         getFragmentManager().beginTransaction().replace(R.id.navigation_content, fragment).commit();
     }

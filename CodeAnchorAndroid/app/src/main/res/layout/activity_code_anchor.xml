@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <edu.oergonstate.das.codeanchorandroid.SlidingTabLayout
+    <edu.oergonstate.das.codeanchorandroid.tab.SlidingTabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

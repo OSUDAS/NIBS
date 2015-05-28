@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.tab;
 
 import android.R;
 import android.content.Context;

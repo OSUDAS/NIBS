@@ -1,8 +1,7 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.beacon;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
@@ -13,8 +12,17 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * Represents a beacon with all information from the server.
+ *
+ * Implements parceleable to pass among android components.
+ *
+ * This class is a mess.
+ *
+ */
 public class CABeacon implements Parcelable {
 
+    /*  JSON keys   */
     public static final String BUILDING_KEY = "building";
     public static final String LOCATION_KEY = "location";
     public static final String INFORMATION_KEY = "info";
@@ -26,6 +34,7 @@ public class CABeacon implements Parcelable {
     public static final String INSTRUCTION_KEY = "instruction";
     public static final String MAJOR_ID_KEY = "majorID";
 
+    /*  Logging Tag */
     private static String TAG = "CABeacon";
 
     private Beacon mBeacon;
@@ -130,7 +139,7 @@ public class CABeacon implements Parcelable {
     }
 
     public String getLocation() {
-        return mLocation;
+        return mLocation != null ? mLocation : null;
     }
 
     public void setLocation(String mLocation) {
@@ -172,15 +181,16 @@ public class CABeacon implements Parcelable {
         return beacons;
     }
 
+    /*  FIXME   */
     public class Navigation {
-        Destination destination;
-        ArrayList<Step> steps;
+        public Destination destination;
+        public ArrayList<Step> steps;
     }
 
     public class Step {
-        int stepNum;
-        String instruction;
-        int majorId;
+        public int stepNum;
+        public String instruction;
+        public int majorId;
 
         public Step(int stepNum, String instruction, int majorId) {
             this.stepNum = stepNum;
@@ -189,6 +199,7 @@ public class CABeacon implements Parcelable {
         }
     }
 
+    /*  FIXME   */
     public class Destination {
         int majorID;
         int minorID;

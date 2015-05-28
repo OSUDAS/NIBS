@@ -1,4 +1,4 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.fragment;
 
 import android.app.ListFragment;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
+import edu.oergonstate.das.codeanchorandroid.beacon.CABeacon;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IDestinationListItemSelected;
 
 /**
  * Created by Alec on 5/3/2015.

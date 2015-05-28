@@ -3,21 +3,34 @@ package edu.oergonstate.das.codeanchorandroid;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v4.view.PagerTabStrip;
-import android.support.v4.view.ViewPager;
 import android.support.v13.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 
 import java.util.ArrayList;
 
+import edu.oergonstate.das.codeanchorandroid.beacon.BeaconManagerService;
+import edu.oergonstate.das.codeanchorandroid.beacon.CABeacon;
+import edu.oergonstate.das.codeanchorandroid.fragment.InformationFragment;
+import edu.oergonstate.das.codeanchorandroid.fragment.NavigationFragment;
+import edu.oergonstate.das.codeanchorandroid.fragment.SettingsFragment;
+import edu.oergonstate.das.codeanchorandroid.interfaces.ICurrentBeacon;
+import edu.oergonstate.das.codeanchorandroid.interfaces.IRefreshBeaconList;
+import edu.oergonstate.das.codeanchorandroid.tab.SlidingTabLayout;
+
 /**
- * Created by Alec on 4/17/2015.
+ * The activity that handles the ui. It passes responsibility to its children fragments, Navigation
+ * Information and Settings. This activity uses a viewpager as its ui element
+ *
+ * See http://developer.android.com/training/animation/screen-slide.html for more information on
+ * view pagers.
  */
 public class CodeAnchorActivity extends Activity implements IRefreshBeaconList, ICurrentBeacon {
 
@@ -40,7 +53,6 @@ public class CodeAnchorActivity extends Activity implements IRefreshBeaconList, 
 
     ViewPager mViewPager;
     SlidingTabLayout mSlidingTabLayout;
-//    PagerTabStrip mPagerTabStrip;
 
     SettingsFragment mSettings = new SettingsFragment();
     InformationFragment mInformation = new InformationFragment();
@@ -49,27 +61,34 @@ public class CodeAnchorActivity extends Activity implements IRefreshBeaconList, 
     BeaconManagerService mBeaconManagerService;
     boolean mBound;
 
+    /*  Lifecycle event. Check android documentation for specifics about the lifecycle  */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_code_anchor);
+        setContentView(R.layout.activity_code_anchor); // The layout file associated with this activity
 
-        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager = (ViewPager) findViewById(R.id.pager); //Viewpager is what gives us the swiping
         mViewPager.setAdapter(new CodeAnchorPagerAdapter(getFragmentManager()));
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(3); //keeps all the pages loaded in memory for quicker performance
 
+        /*  The tabs    */
         mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setDistributeEvenly(true);
         mSlidingTabLayout.setViewPager(mViewPager);
 
-//        mPagerTabStrip = (PagerTabStrip) findViewById(R.id.pager_title_strip);
-
+        /*  Start on the Information page rather than settings  */
         mViewPager.setCurrentItem(INFORMATION_PAGE, false);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+
+        /* Determines if bluetooth is enabled and if not asks the users to enable it    */
+        if (!BluetoothAdapter.getDefaultAdapter().isEnabled()) {
+            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(intent, REQUEST_ENABLE_BLUETOOTH);
+        }
 
         Intent intent = new Intent(this, BeaconManagerService.class);
         bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
@@ -84,16 +103,35 @@ public class CodeAnchorActivity extends Activity implements IRefreshBeaconList, 
         }
     }
 
+    /*  Handle the back button not handled natively with our implementation.    */
+    @Override
+    public void onBackPressed() {
+        int currentPage = mViewPager.getCurrentItem();
+        switch (currentPage) {
+            case INFORMATION_PAGE:
+                mInformation.returnToList();
+                break;
+            case NAVIGATION_PAGE:
+                mNavigation.returnToList();
+                break;
+            default:
+                super.onBackPressed();
+        }
+    }
+
+    /*  Callback for children to access detected beacons    */
     @Override
     public ArrayList<CABeacon> refreshBeaconList() {
         return mBeaconManagerService.getFoundBeacons();
     }
 
+    /*  Callback to set which beacon is currently selected  */
     @Override
     public void setCurrentBeacon(CABeacon beacon) {
         this.mCurrentBeacon = beacon;
     }
 
+    /*  Callback to detect which beacon is currently selected   */
     @Override
     public CABeacon getCurrentBeacon() {
         return this.mCurrentBeacon;

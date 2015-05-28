@@ -1,4 +1,4 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.beacon;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,17 +9,21 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import edu.oergonstate.das.codeanchorandroid.R;
+
 /**
- * Created by Alec on 4/29/2015.
+ * A custom Adapter to handle the list of beacons in the Information view.
+ *
+ * See http://www.codelearn.org/android-tutorial/android-listview for more information
  */
-public class DestinationListAdapter extends BaseAdapter {
+public class BeaconListAdapter extends BaseAdapter {
 
     private static final String TAG = "BeaconListAdapter";
 
-    private ArrayList<CABeacon.Destination> mBeaconList;
+    private ArrayList<CABeacon> mBeaconList;
     private Context mContext;
 
-    public DestinationListAdapter(Context context) {
+    public BeaconListAdapter(Context context) {
         this.mContext = context;
         mBeaconList = new ArrayList<>();
     }
@@ -51,14 +55,14 @@ public class DestinationListAdapter extends BaseAdapter {
         TextView building = (TextView) view.findViewById(R.id.beacon_list_item_building);
         TextView distance = (TextView) view.findViewById(R.id.beacon_list_item_distance);
 
-//        location.setText(mBeaconList.get(position).location);
-//        building.setText("");
-//        distance.setText("");
+        location.setText(mBeaconList.get(position).getLocation());
+        building.setText(mBeaconList.get(position).getBuilding());
+        distance.setText(String.format("%1.2f", mBeaconList.get(position).getAccuracy()));
 
         return view;
     }
 
-    public void replaceWith(ArrayList<CABeacon.Destination> collection) {
+    public void replaceWith(ArrayList<CABeacon> collection) {
         mBeaconList.clear();
         mBeaconList.addAll(collection);
         this.notifyDataSetChanged();

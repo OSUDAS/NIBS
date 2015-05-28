@@ -1,9 +1,8 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.beacon;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.*;
@@ -21,7 +20,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,6 +36,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import edu.oergonstate.das.codeanchorandroid.CodeAnchorActivity;
+import edu.oergonstate.das.codeanchorandroid.R;
+
+/**
+ * A bound service that handles detection and handling of beacons
+ */
 public class BeaconManagerService extends Service {
     private static final String TAG = "BeaconManagerService";
     private static final boolean DEBUG_LOCAL = true;
@@ -57,9 +61,6 @@ public class BeaconManagerService extends Service {
     private BeaconManager mBeaconManager;
     private static final Region ALL_ESTIMOTE_BEACONS_REGION = new Region("regionId", null, null, null);
 
-    /*  Notifications   */
-    private Intent mResultIntent;
-    private PendingIntent mPendingIntent;
     private NotificationCompat.Builder mBuilder;
     private NotificationManager mNotificationManager;
 
@@ -70,13 +71,10 @@ public class BeaconManagerService extends Service {
         HandlerThread thread = new HandlerThread("ServiceStartArguments", Process.THREAD_PRIORITY_BACKGROUND);
         thread.start();
 
-        mServiceLooper = thread.getLooper();
-        mServiceHandler = new ServiceHandler(mServiceLooper);
-
         mContext = getApplicationContext();
 
-        mResultIntent = new Intent(mContext, CodeAnchorActivity.class);
-        mPendingIntent = PendingIntent.getActivity(mContext, 0, mResultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent mResultIntent = new Intent(mContext, CodeAnchorActivity.class);
+        PendingIntent mPendingIntent = PendingIntent.getActivity(mContext, 0, mResultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         mBuilder = new NotificationCompat.Builder(mContext)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -98,15 +96,6 @@ public class BeaconManagerService extends Service {
         }
         Log.i(TAG, "beacon manager connect");
         mBeaconManager.connect(mServiceReadyCallback);
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Message msg = mServiceHandler.obtainMessage();
-        msg.arg1 = startId;
-        mServiceHandler.sendMessage(msg);
-
-        return START_STICKY;
     }
 
     @Override
@@ -138,10 +127,6 @@ public class BeaconManagerService extends Service {
         return mFoundBeacons;
     }
 
-
-    private Looper mServiceLooper;
-    private ServiceHandler mServiceHandler;
-
     private final class ServiceHandler extends Handler {
         public ServiceHandler(Looper looper) {
             super(looper);
@@ -154,7 +139,7 @@ public class BeaconManagerService extends Service {
     }
 
     public class BeaconManagerBinder extends Binder {
-        BeaconManagerService getService() {
+        public BeaconManagerService getService() {
             return BeaconManagerService.this;
         }
     }
@@ -162,21 +147,16 @@ public class BeaconManagerService extends Service {
     private BeaconManager.RangingListener mBeaconRangingListener = new BeaconManager.RangingListener() {
         @Override
         public void onBeaconsDiscovered(Region region, List<Beacon> list) {
-            Log.i(TAG, "Beacons Discovered");
-            Log.i(TAG, list.toString());
-
-            //TODO: Fetch beacon info from network and cache
 
             mFoundBeacons.clear();
 
             for (Beacon beacon : list) {
                 CABeacon caBeacon = beaconIsCached(beacon);
                 if (caBeacon == null) {
-                    //TODO: Fetch from network
                     try {
                         JSONObject json;
 
-                        //TODO: Temporarily fetch data from local json file
+                        //FIXME: Temporarily fetch data from local json file beacon{major}{minor}
                         if (DEBUG_LOCAL) {
                             String test = "beacon" + beacon.getMajor() + beacon.getMinor() + "";
                             InputStream inputStream;
@@ -201,15 +181,12 @@ public class BeaconManagerService extends Service {
                             json = new JSONObject(res.toString());
                         }
                         else {
+                            /*  Fetches from the network if not found locally   */
                             json = new FetchBeaconFromNetwork().execute(beacon.getMajor(), beacon.getMinor()).get();
                         }
 
-                        if (json == null) return;
+                        cacheBeacon(beacon, json);
 
-                        /*  Caches Results  */
-                        FileOutputStream stream = openFileOutput(String.format("%d%d", beacon.getMajor(), beacon.getMinor()), MODE_PRIVATE);
-                        stream.write(json.toString().getBytes());
-                        stream.close();
 
                         Log.i("TAG", json.toString());
 
@@ -220,25 +197,35 @@ public class BeaconManagerService extends Service {
                         e.printStackTrace();
                     }
                     catch (ExecutionException e) {
+                        Log.e(TAG, "FetchBeaconFromNetwork error out");
                         e.printStackTrace();
                     }
                     catch (FileNotFoundException e) {
+                        // FIXME: Won't be needed once server is re-set up
+                        Log.e(TAG, "Error reading raw resources");
                         e.printStackTrace();
                     }
                     catch (IOException e) {
+                        Log.e(TAG, "Error with files");
                         e.printStackTrace();
                     }
                     catch (JSONException e) {
+                        //  FIXME: Won't be needed once server is re-set up
+                        Log.e(TAG, "Error forming JSON");
                         e.printStackTrace();
                     }
                 }
                 else {
+                    // If cached beacon found
                     mFoundBeacons.add(caBeacon);
                 }
 
+                /*  If notifications are turned on update or create notification    */
                 if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean("notification_toggle", false)) {
-                    mBuilder.setContentText(caBeacon.getLocation());
-                    mNotificationManager.notify(caBeacon.getMajor(), mBuilder.build());
+                    if (caBeacon != null && caBeacon.getLocation() != null) {
+                        mBuilder.setContentText(caBeacon.getLocation());
+                        mNotificationManager.notify(caBeacon.getMajor(), mBuilder.build());
+                    }
                 }
             }
 
@@ -246,6 +233,21 @@ public class BeaconManagerService extends Service {
     };
 
     /**
+     * Caches the beacon
+     *
+     * //IDEA: Think about making this store into an SQLite database rather than raw files
+     *
+     * @throws IOException
+     */
+    private void cacheBeacon(Beacon beacon, JSONObject json) throws IOException {
+    /*  Caches Results  */
+        FileOutputStream stream = openFileOutput(String.format("%d%d", beacon.getMajor(), beacon.getMinor()), MODE_PRIVATE);
+        stream.write(json.toString().getBytes());
+        stream.close();
+    }
+
+    /**
+     * Checks if the beacon is cached locally. File name for beacons is "{major}{minor}"
      * Returns a CABeacon if the beacon is located in cache otherwise returns null.
      */
     private CABeacon beaconIsCached(Beacon beacon){
@@ -263,7 +265,7 @@ public class BeaconManagerService extends Service {
 
             if (list != null && list.length >= 1) {
                 StringBuilder buffer = new StringBuilder();
-                String line = "";
+                String line;
                 BufferedReader stream = new BufferedReader(new FileReader(list[0]));
                 while((line = stream.readLine()) != null) {
                     buffer.append(line);
@@ -273,19 +275,24 @@ public class BeaconManagerService extends Service {
             }
         }
         catch (FileNotFoundException e) {
+            Log.i(TAG, "Beacon not found in local cache");
             return null;
         }
         catch (IOException e) {
+            Log.e(TAG, "Problem with handling file opening");
             e.printStackTrace();
         }
         catch (JSONException e) {
+            Log.e(TAG, "Unable to parse file into JSONObject");
             e.printStackTrace();
         }
-        finally {
-            return b;
-        }
+        return b;
     }
 
+    /**
+     * Asynchronous call to get the data associated with a beacon. It needs two integer parameters
+     * that are the major and minor id respectively. It returns a json object
+     */
     private class FetchBeaconFromNetwork extends AsyncTask<Integer, Void, JSONObject> {
 
         @Override
@@ -297,6 +304,7 @@ public class BeaconManagerService extends Service {
 
             String mResult = "";
 
+            /*  FIXME: Replace with actual URL  */
             String url = String.format("http://1-dot-capstone-bluetooth.appspot.com/capstone?majorId=%d&minorId=%d", major, minor);
 
             HttpResponse mHttpResponse;
@@ -325,16 +333,19 @@ public class BeaconManagerService extends Service {
                 return new JSONObject(mResult);
             }
             catch (IOException e) {
+                Log.e(TAG, "Error reading response from server");
                 e.printStackTrace();
             } catch (JSONException e) {
+                Log.e(TAG, "Error forming JSON from query response");
                 e.printStackTrace();
             }
-            finally {
-                return null;
-            }
+            return null;
         }
     }
 
+    /**
+     * Part of Estimote Beacon sdk
+     */
     private BeaconManager.ServiceReadyCallback mServiceReadyCallback = new BeaconManager.ServiceReadyCallback() {
         @Override
         public void onServiceReady() {

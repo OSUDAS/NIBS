@@ -1,8 +1,10 @@
-package edu.oergonstate.das.codeanchorandroid;
+package edu.oergonstate.das.codeanchorandroid.fragment;
 
 import android.app.Fragment;
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+
+import edu.oergonstate.das.codeanchorandroid.R;
 
 /**
  * Created by Alec on 4/20/2015.
