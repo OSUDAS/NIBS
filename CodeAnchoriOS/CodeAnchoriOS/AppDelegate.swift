@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var manager:DataManager?
 
+    //Initial entry point for the app
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -22,44 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
         let settings = UIUserNotificationSettings(forTypes: notificationType, categories: nil)
         application.registerUserNotificationSettings(settings)
-
-        
-        /*
-        let notificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
-        let acceptAction = UIMutableUserNotificationAction()
-        acceptAction.identifier = "Accept"
-        acceptAction.title = "Accept"
-        acceptAction.activationMode = UIUserNotificationActivationMode.Background
-        acceptAction.destructive = false
-        acceptAction.authenticationRequired = false
-        
-        let declineAction = UIMutableUserNotificationAction()
-        declineAction.identifier = "Decline"
-        declineAction.title = "Decline"
-        declineAction.activationMode = UIUserNotificationActivationMode.Background
-        declineAction.destructive = false
-        declineAction.authenticationRequired = false
-*/
-        
-        /*
-        let category = UIMutableUserNotificationCategory()
-        category.identifier = "beaconNotification"
-        category.setActions([acceptAction, declineAction], forContext: UIUserNotificationActionContext.Default)
-        let categories = NSSet(array: [category])
-        let settings = UIUserNotificationSettings(forTypes: notificationType, categories: categories)
-        application.registerUserNotificationSettings(settings)
-        */
         
         //Deploy background task for DataManager
         manager = DataManager()
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            
             var demo = DemoData()
             demo.loadDemoData()
             self.manager!.run()
-            
-            
         })
         
         return true

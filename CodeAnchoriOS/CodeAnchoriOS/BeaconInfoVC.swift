@@ -13,25 +13,23 @@ class BeaconInfoVC: UIViewController {
     @IBOutlet weak var textArea: UITextView!
     @IBOutlet weak var distanceLabel: UILabel!
     
+    //Timer for when to refresh the distance label for the given beacon
     var timer:NSTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        //Get current beacon selected
         var tabController = self.tabBarController! as NIBSTabBarController
-        NSLog("%@", tabController.currentBeacon!)
-        
         beacon = tabController.currentBeacon
         
+        //Setup UI
         self.title = beacon?.subject
         textArea.text = beacon?.info
-        
         textArea.selectable = false;
-
         distanceLabel.text = "Distance \(beacon!.distance!)m"
         
+        //Create back button
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Beacons", style: UIBarButtonItemStyle.Bordered, target: self, action :"back:")
         self.navigationItem.leftBarButtonItem = newBackButton
@@ -53,7 +51,7 @@ class BeaconInfoVC: UIViewController {
         
     }
 
-    
+    //Back button pressed
     func back(sender: UIBarButtonItem) {
         let tbc = self.tabBarController! as NIBSTabBarController
         tbc.currentBeacon = nil

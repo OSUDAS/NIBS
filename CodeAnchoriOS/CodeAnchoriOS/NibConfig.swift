@@ -8,6 +8,9 @@
 
 import Foundation
 
+/*
+    Singleton for holding app configuration information
+*/
 class NibConfig: NSObject {
     var notifications:Bool = true;
     

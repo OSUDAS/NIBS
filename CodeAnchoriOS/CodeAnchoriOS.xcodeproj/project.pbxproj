@@ -11,6 +11,7 @@
 		D81592BB1AE89A4A0057DA4F /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81592BA1AE89A4A0057DA4F /* DemoData.swift */; };
 		D81592BD1AE8A58B0057DA4F /* DemoData.json in Resources */ = {isa = PBXBuildFile; fileRef = D81592BC1AE8A58B0057DA4F /* DemoData.json */; };
 		D835703E1AED9E5E00555582 /* NibConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D835703D1AED9E5E00555582 /* NibConfig.swift */; };
+		D847B51D1AF95D96008782AD /* beep.wav in Resources */ = {isa = PBXBuildFile; fileRef = D847B51C1AF95D96008782AD /* beep.wav */; };
 		D8BB58221AE0446D00442C39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BB58211AE0446D00442C39 /* AppDelegate.swift */; };
 		D8BB582A1AE0446D00442C39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8BB58281AE0446D00442C39 /* Main.storyboard */; };
 		D8BB582C1AE0446D00442C39 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8BB582B1AE0446D00442C39 /* Images.xcassets */; };
@@ -52,6 +53,7 @@
 		D81592BA1AE89A4A0057DA4F /* DemoData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
 		D81592BC1AE8A58B0057DA4F /* DemoData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = DemoData.json; path = ../DemoData.json; sourceTree = "<group>"; };
 		D835703D1AED9E5E00555582 /* NibConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibConfig.swift; sourceTree = "<group>"; };
+		D847B51C1AF95D96008782AD /* beep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = beep.wav; sourceTree = "<group>"; };
 		D8BB581C1AE0446D00442C39 /* CodeAnchoriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeAnchoriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8BB58201AE0446D00442C39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8BB58211AE0446D00442C39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		D8BB581E1AE0446D00442C39 /* CodeAnchoriOS */ = {
 			isa = PBXGroup;
 			children = (
+				D847B51C1AF95D96008782AD /* beep.wav */,
 				D8CE78BB1AED7DF50018F48B /* SettingsTVC.swift */,
 				D8CE78961AEC5DCB0018F48B /* Navigation */,
 				D8C11D9F1AE8472C00BB000B /* Model */,
@@ -362,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D847B51D1AF95D96008782AD /* beep.wav in Resources */,
 				D81592BD1AE8A58B0057DA4F /* DemoData.json in Resources */,
 				D8BB582A1AE0446D00442C39 /* Main.storyboard in Resources */,
 				D8BB582F1AE0446D00442C39 /* LaunchScreen.xib in Resources */,

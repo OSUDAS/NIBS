@@ -8,20 +8,19 @@
 
 import UIKit
 
+//Displays all navigation destinations for the current selected beacon
 class NavDirectoryTVC: UITableViewController {
-    
     
     var items:[NavigationDirectoryObject] = [NavigationDirectoryObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
+        //Get current selected beacon
         var tbc = self.tabBarController as NIBSTabBarController
         
         if(tbc.currentBeacon != nil) {
@@ -30,19 +29,14 @@ class NavDirectoryTVC: UITableViewController {
             items = [NavigationDirectoryObject]()
         }
         
-        
-        //NSLog("!!!!!Got: \(items)")
-        
         self.tableView.reloadData()
         
     }
-    
-    
+
+    //TableViewController delegate methods
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.items.count
     }
-    
-    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCellWithIdentifier("NavigationCell") as UITableViewCell
@@ -58,6 +52,7 @@ class NavDirectoryTVC: UITableViewController {
         nnc.selectedDirectory = items[indexPath.row]
     }
     
+    //Segue to steps for a given destination 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //Send selected Directory to StepVC
         if( segue.identifier == "Show Steps"){

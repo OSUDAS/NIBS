@@ -29,15 +29,12 @@ class BeaconTVC: UITableViewController {
         manager = (UIApplication.sharedApplication().delegate as AppDelegate).manager
         let beacons = manager!.beaconCache
         items = filterIntermediateBeacons(beacons)
-        //Start timer
-        //timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: Selector("updateTable:"), userInfo: nil, repeats: true)
     }
     
     func updateTable(timer: NSTimer){
         let beacons = manager!.beaconCache
         items = filterIntermediateBeacons(beacons)
         self.tableView.reloadData()
-        NSLog("Reloading table")
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -51,17 +48,17 @@ class BeaconTVC: UITableViewController {
     func filterIntermediateBeacons(items: [BeaconObject]) -> [BeaconObject]{
         var good = [BeaconObject]()
         for i in 0...items.endIndex-1{
-            //if(items[i].subject != "Intermediate"){
+            if(items[i].subject != "Intermediate"){
                 good.append(items[i])
-            //}
+            }
         }
         return good
         
     }
 }
 
+//TableViewController Delegate Methods
 extension BeaconTVC: UITableViewDelegate, UITableViewDataSource {
-    
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return self.items.count
@@ -70,25 +67,18 @@ extension BeaconTVC: UITableViewDelegate, UITableViewDataSource {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCellWithIdentifier("BeaconCell") as UITableViewCell
         
-        
         if(self.items[indexPath.row].subject != ""){
             cell.textLabel?.text = self.items[indexPath.row].location
-        } else {
-            
         }
         cell.detailTextLabel?.text = self.items[indexPath.row].building
         
         return cell
     }
     
+    //Row Selected
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        NSLog("%d",indexPath.row)
-        NSLog("Item: %@",items[indexPath.row])
-        
         var tabController = self.tabBarController! as NIBSTabBarController
-        //NSLog("%@", tabController.currentBeacon)
         tabController.currentBeacon = items[indexPath.row]
         
     }
-    //Selected Row Event
 }

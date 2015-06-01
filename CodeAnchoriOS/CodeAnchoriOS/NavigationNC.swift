@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Holds properties to share between the navigation and step view controllers
 class NavigationNC: UINavigationController {
     var startBeacon:BeaconObject?
     var destinationBeacon:BeaconObject?

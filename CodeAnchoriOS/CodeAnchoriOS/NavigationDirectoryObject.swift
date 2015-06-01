@@ -23,8 +23,7 @@ class NavigationDirectoryObject: NSObject {
         subject = navDirectory.subject
         building = navDirectory.building
         destination = navDirectory.destination
-        //TODO steps
-        
+
         var steps = [StepObject]()
         for s in navDirectory.steps{
             var step = s as Step

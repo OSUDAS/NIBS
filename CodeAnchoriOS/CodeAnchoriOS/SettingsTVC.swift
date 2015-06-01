@@ -8,6 +8,7 @@
 
 import UIKit
 
+//View Controller for the settings panel in the app
 class SettingsTVC: UITableViewController, UITableViewDelegate {
     
     @IBOutlet weak var distanceSegment: UISegmentedControl!
@@ -24,8 +25,22 @@ class SettingsTVC: UITableViewController, UITableViewDelegate {
         
         notificationToggle.setOn(manager!.configuration.notifications, animated: false)
         
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if(defaults.objectForKey("tone") == nil){
+            defaults.setValue(2, forKey: "tone")
+        }
+        
+        toneSegment.selectedSegmentIndex = defaults.valueForKey("tone")!.integerValue
+        
     }
     
+    @IBAction func toggleTones(sender: UISegmentedControl) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        defaults.setObject(sender.selectedSegmentIndex , forKey: "tone")
+        
+    }
     
     @IBAction func toggleNotifications(sender: UISwitch) {
         let defaults = NSUserDefaults.standardUserDefaults()
