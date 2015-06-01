@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <PreferenceCategory
+        android:title="Notifications">
+
+        <SwitchPreference
+            android:key="notification_toggle"
+            android:title="Notifications" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Caching">
+
+        <SwitchPreference
+            android:key="cache_toggle"
+            android:title="Cache Beacons" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Tones and Buzzes">
+
+        <SwitchPreference
+            android:key="tone_toggle"
+            android:title="Tones"/>
+
+        <SwitchPreference
+            android:key="buzz_toggle"
+            android:title="Buzzes"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

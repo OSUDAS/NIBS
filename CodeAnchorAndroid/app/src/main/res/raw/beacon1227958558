@@ -1,0 +1,41 @@
+{
+  "majorID": 12279,
+  "minorID": 58558,
+  "building": "Kelly Engineering",
+  "location": "Entrance",
+  "info": "Entrance to Kelly Engineering. This building contains EECS offices and lecture halls.",
+  "distance": 0.1,
+  "subject": "Entrance",
+  "navigation": [
+    {
+      "majorID": 175632,
+      "minorID": 61391,
+      "destination": "Back Entrance",
+      "subject": "Entrance",
+      "distance": 30,
+      "info": "Back entrance to Kelly Engineering.",
+      "steps": [
+        {
+          "stepNum": 1,
+          "instruction": "Face away from the doors",
+          "majorID": 12279
+        },
+        {
+          "stepNum": 2,
+          "instruction": "Walk forward 20 steps",
+          "majorID": 17632
+        },
+        {
+          "stepNum": 3,
+          "instruction": "Turn right",
+          "majorID": 45890
+        },
+        {
+          "stepNum": 4,
+          "instruction": "You have arrived at the back entrance",
+          "majorID": 5818
+        }
+      ]
+    }
+  ]
+}

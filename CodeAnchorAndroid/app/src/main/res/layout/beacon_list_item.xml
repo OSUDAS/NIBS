@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="75"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/beacon_list_item_location"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="eCafe"
+            android:padding="10dp"
+            android:textColor="@android:color/black"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <TextView
+            android:id="@+id/beacon_list_item_building"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:textColor="@android:color/black"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Kelly Engineering"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/beacon_list_item_distance"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="25"
+        android:textColor="@android:color/black"
+        android:text="24m"
+        android:gravity="end|center_vertical"
+        android:padding="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+</LinearLayout>
